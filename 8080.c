@@ -16,7 +16,7 @@ void ReadFileIntoMemoryAt(State8080* state, char* filename, uint32_t offset)
 	if (file==NULL)
 	{
 		printf("error: Couldn't open %s\n", filename);
-		exit(1);
+		exit(1); 
 	}
 	fseek(file, 0L, SEEK_END);
 	int filesize = ftell(file);
@@ -48,6 +48,9 @@ int main (int argc, char**argv)
 	while (done == 0)
 	{
 		done = Emulate8080Op(state);
+		// getchar();
 	}
 	return 0;
 }
+// 1a3a c9 RET
+// --> z.p..  A $00 B $00 C $00 D $1c E $00 H $21 L $00 SP 2400
